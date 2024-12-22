@@ -1,13 +1,13 @@
 ---
-layout: Layout.tsx
 title: About
 ---
 
-# About Me
+# Projects
 
-This is the about page where you can share information about yourself.
+<comp.CardList items={search.pages("type=project")} />
 
-- Your background
-- Skills
-- Interests
-- Experience
+<br />
+
+# Publications
+
+<comp.CardList items={search.pages("type=publication")} />
