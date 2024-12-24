@@ -850,9 +850,9 @@ video {
 .p-6 {
   padding: 1.5rem;
 }
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .py-8 {
   padding-top: 2rem;
@@ -991,11 +991,20 @@ video {
   src: url('fonts/shrikhand-normal-400-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.hover\:bg-light-magenta\/20:hover {
-  background-color: rgb(206 93 151 / 0.2);
+.hover\:bg-light-blue\/20:hover {
+  background-color: rgb(67 133 190 / 0.2);
 }
-.hover\:bg-light-red\/20:hover {
-  background-color: rgb(209 77 65 / 0.2);
+.hover\:bg-light-cyan\/20:hover {
+  background-color: rgb(58 169 159 / 0.2);
+}
+.hover\:bg-light-green\/20:hover {
+  background-color: rgb(135 154 57 / 0.2);
+}
+.hover\:bg-light-purple\/20:hover {
+  background-color: rgb(139 126 200 / 0.2);
+}
+.hover\:bg-light-yellow\/20:hover {
+  background-color: rgb(208 162 21 / 0.2);
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;

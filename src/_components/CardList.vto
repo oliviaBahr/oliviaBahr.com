@@ -1,4 +1,3 @@
-
 {{ set magenta = "hover:bg-light-magenta/20" }}
 {{ set red = "hover:bg-light-red/20" }}
 {{ set orange = "hover:bg-light-orange/20" }}
@@ -7,10 +6,12 @@
 {{ set cyan = "hover:bg-light-cyan/20" }}
 {{ set blue = "hover:bg-light-blue/20" }}
 {{ set purple = "hover:bg-light-purple/20" }}
-{{ set shadowColors = [magenta, red, orange, yellow, green, cyan, blue, purple] }}
+{{ set bgColors = [magenta, red, orange, yellow, green, cyan, blue, purple] }}
+{{> startIndex = Math.floor(Math.random() * bgColors.length) }}
+{{ set bgColors = [...bgColors.slice(startIndex), ...bgColors.slice(0, startIndex)] }}
 
 {{ function getShadowColor(index) }}
-  {{> return shadowColors[index % shadowColors.length] }}
+  {{> return bgColors[index % bgColors.length] }}
 {{ /function }}
 
 <div class="space-y-8">
