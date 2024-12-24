@@ -5,4 +5,3 @@ description: A place to hold all those random notes you don't know what to do wi
 
 # Tip Jar
 
-Detailed description of your tip jar project...
