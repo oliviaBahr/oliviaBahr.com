@@ -1,0 +1,27 @@
+---
+title: Main layout
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="min-h-screen">
+    <div class="min-h-screen grid grid-cols-[16rem_1fr] grid-rows-[auto_1fr] divide-gray-300 divide-y divide-x">
+      <div class="flex items-center p-4">
+        {{ comp.FancyName() }}
+      </div>
+      <div class="flex items-center justify-center p-4">
+        <h1 class="text-6xl rainbow-hover font-semibold">{{title}}</h1>
+      </div>
+      {{ comp.Navbar() }}
+      <main class="px-8 py-8">
+        {{ content }}
+      </main>
+    </div>
+  </body>
+</html>;

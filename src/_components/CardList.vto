@@ -1,0 +1,24 @@
+
+{{ set magenta = "hover:bg-light-magenta/20" }}
+{{ set red = "hover:bg-light-red/20" }}
+{{ set orange = "hover:bg-light-orange/20" }}
+{{ set yellow = "hover:bg-light-yellow/20" }}
+{{ set green = "hover:bg-light-green/20" }}
+{{ set cyan = "hover:bg-light-cyan/20" }}
+{{ set blue = "hover:bg-light-blue/20" }}
+{{ set purple = "hover:bg-light-purple/20" }}
+{{ set shadowColors = [magenta, red, orange, yellow, green, cyan, blue, purple] }}
+
+{{ function getShadowColor(index) }}
+  {{> return shadowColors[index % shadowColors.length] }}
+{{ /function }}
+
+
+{{ for index, page of pages |> enumerate }}
+  <div class="my-8 space-y-8">
+    <a href="{{page.url}}", class="card {{getShadowColor(index)}}">
+      <h3 class="h3 mono">{{page.title}}</h3>
+      <p class="text-gray-600">{{page.description}}</p>
+    </a>
+  </div>
+{{ /for}}
