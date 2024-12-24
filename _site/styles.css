@@ -749,8 +749,11 @@ video {
 .m-4 {
   margin: 1rem;
 }
-.my-8 {
-  margin-top: 2rem;
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.mb-8 {
   margin-bottom: 2rem;
 }
 .ml-6 {
@@ -762,11 +765,32 @@ video {
 .grid {
   display: grid;
 }
+.h-6 {
+  height: 1.5rem;
+}
+.h-80 {
+  height: 20rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
+.w-1\/3 {
+  width: 33.333333%;
+}
+.w-2\/3 {
+  width: 66.666667%;
+}
+.w-6 {
+  width: 1.5rem;
+}
 .w-64 {
   width: 16rem;
+}
+.w-80 {
+  width: 20rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
 }
 .grid-cols-\[16rem_1fr\] {
   grid-template-columns: 16rem 1fr;
@@ -782,6 +806,12 @@ video {
 }
 .justify-center {
   justify-content: center;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -807,6 +837,13 @@ video {
   --tw-divide-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-divide-opacity, 1));
 }
+.rounded-full {
+  border-radius: 9999px;
+}
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .p-4 {
   padding: 1rem;
 }
@@ -821,6 +858,9 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.text-center {
+  text-align: center;
+}
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
@@ -831,6 +871,20 @@ video {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 @font-face {
   font-family: 'text';
@@ -942,4 +996,8 @@ video {
 }
 .hover\:bg-light-red\/20:hover {
   background-color: rgb(209 77 65 / 0.2);
+}
+.hover\:text-gray-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }

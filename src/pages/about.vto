@@ -3,12 +3,37 @@ title: About
 oldUrl: /
 ---
 
-<h1>Projects</h1>
+<div class="flex gap-8 mb-8">
+  <div class="w-1/3">
+    {{ comp.AboutCard() }}
+  </div>
+  <div class="w-2/3">
+    <p>
+      <br />
+      Welcome!
+      <br />
+      I'm a linguistics and computer science student at CU Boulder.
+      This site is filled with all of my works and some of my works in progress, all of which are open source.
+      <br />
+      <br />
+      Please reach out for academic or professional inquiries.
+      <br />
+      <br />
+      <br />
+      <br />
+      You're on of the lucky few here before I have a headshot!
+    </p>
+  </div>
+</div>
 
-{{ comp.CardList({pages: search.pages("type=project")}) }}
-
-<br />
-
-<h1>Publications</h1>
-
-{{ comp.CardList({pages: search.pages("type=publication")}) }}
+<div class="flex gap-8 my-20">
+  <div class="flex-1">
+    <h1 class="text-center">Projects</h1>
+    {{ comp.CardList({pages: search.pages("type=project")}) }}
+  </div>
+  
+  <div class="flex-1">
+    <h1 class="text-center">Publications</h1>
+    {{ comp.CardList({pages: search.pages("type=publication")}) }}
+  </div>
+</div>

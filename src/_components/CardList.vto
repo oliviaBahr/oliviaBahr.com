@@ -13,12 +13,11 @@
   {{> return shadowColors[index % shadowColors.length] }}
 {{ /function }}
 
-
-{{ for index, page of pages |> enumerate }}
-  <div class="my-8 space-y-8">
-    <a href="{{page.url}}", class="card {{getShadowColor(index)}}">
-      <h3 class="h3 mono">{{page.title}}</h3>
-      <p class="text-gray-600">{{page.description}}</p>
-    </a>
-  </div>
-{{ /for}}
+<div class="space-y-8">
+  {{ for index, page of pages |> enumerate }}
+      <a href="{{page.url}}", class="card {{getShadowColor(index)}}">
+        <h3 class="h3 mono">{{page.title}}</h3>
+        <p class="text-gray-600">{{page.description}}</p>
+      </a>
+  {{ /for}}
+</div>

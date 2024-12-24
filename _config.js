@@ -7,6 +7,7 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 import typography from "npm:@tailwindcss/typography";
 import redirects from "lume/plugins/redirects.ts";
+import icons from "lume/plugins/icons.ts";
 
 const site = lume({ src: "./src" });
 
@@ -14,6 +15,7 @@ site.use(redirects());
 site.use(base_path());
 site.use(check_urls());
 site.use(code_highlight());
+site.use(icons());
 site.use(
   google_fonts({
     cssFile: "styles.css",
@@ -95,6 +97,7 @@ site.use(
 site.use(postcss());
 
 site.copy("static");
+site.copy("_assets");
 
 site.filter("enumerate", (pages) => {
   if (!Array.isArray(pages)) {
