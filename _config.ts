@@ -11,8 +11,28 @@ import nav from "lume/plugins/nav.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 
-const site = lume();
+const site = lume({ src: "./src" });
 
+site.use(jsx());
+site.use(mdx({ extensions: [".mdx", ".md"] }));
+site.use(base_path());
+site.use(check_urls());
+site.use(code_highlight());
+site.use(nav());
+// site.use(pagefind());
+// site.use(sitemap());
+site.use(google_fonts({
+  cssFile: "styles.css",
+  fonts: {
+    text:
+      "https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap",
+    display:
+      "https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap",
+    yeseva: "https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap",
+    shrikhand:
+      "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap",
+  },
+}));
 site.use(tailwindcss({
   extensions: [".mdx", ".tsx"],
   options: {
@@ -75,27 +95,6 @@ site.use(tailwindcss({
   },
 }));
 site.use(postcss());
-
-site.use(jsx());
-site.use(mdx({ extensions: [".mdx", ".md"] }));
-site.use(base_path());
-site.use(check_urls());
-site.use(code_highlight());
-site.use(nav());
-// site.use(pagefind());
-// site.use(sitemap());
-site.use(google_fonts({
-  cssFile: "styles.css",
-  fonts: {
-    text:
-      "https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap",
-    display:
-      "https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap",
-    yeseva: "https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap",
-    shrikhand:
-      "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap",
-  },
-}));
 
 site.data("layout", "Layout.tsx");
 site.copy("static");
