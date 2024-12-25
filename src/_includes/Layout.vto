@@ -11,17 +11,22 @@ title: Main layout
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body class="min-h-screen">
-    <div class="min-h-screen grid grid-cols-[16rem_1fr] grid-rows-[auto_1fr] divide-gray-300 divide-y divide-x">
-      <div class="flex items-center p-4">
+    <div class="min-h-screen divided-grid">
+      
+      <div class="flex items-center p-6">
         {{ comp.FancyName() }}
       </div>
-      <div class="flex items-center justify-center p-4">
-        <h1 class="text-6xl rainbow-hover font-semibold">{{title}}</h1>
+      
+      <div class="flex items-center justify-center p-6">
+        <h1 class="title">{{title}}</h1>
       </div>
+      
       {{ comp.Navbar() }}
+      
       <main class="px-12 py-8">
         {{ content }}
       </main>
+    
     </div>
   </body>
 </html>
