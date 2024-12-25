@@ -984,20 +984,11 @@ video {
 .hover\:bg-light-blue\/20:hover {
   background-color: rgb(67 133 190 / 0.2);
 }
-.hover\:bg-light-green\/20:hover {
-  background-color: rgb(135 154 57 / 0.2);
-}
 .hover\:bg-light-magenta\/20:hover {
   background-color: rgb(206 93 151 / 0.2);
 }
-.hover\:bg-light-orange\/20:hover {
-  background-color: rgb(218 112 44 / 0.2);
-}
 .hover\:bg-light-purple\/20:hover {
   background-color: rgb(139 126 200 / 0.2);
-}
-.hover\:bg-light-yellow\/20:hover {
-  background-color: rgb(208 162 21 / 0.2);
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
