@@ -18,7 +18,7 @@
       </div>
       
       <div class="flex items-center justify-center p-6">
-        <h1 class="title">Finder Utilities</h1>
+        <h1 class="title">macOS Setup</h1>
       </div>
       
       <nav class="flex flex-col space-y-4 p-6">
@@ -30,7 +30,29 @@
 
       
       <main class="px-12 py-8">
-        <h1>Finder Utilities</h1>
+        <h1>OS</h1>
+<h2>Settings</h2>
+<p><code>Accessibility -&gt; Trackpad Options -&gt; Dragging Style -&gt; Three Finger Drag</code></p>
+<p><code>Accessibility -&gt; Double-click speed -&gt; 8</code></p>
+<p><code>Trackpad -&gt; Point &amp; Click -&gt; Tap to click -&gt; on</code></p>
+<p><code>Trackpad -&gt; Scroll &amp; Zoom -&gt; Natural scrolling --&gt; off</code></p>
+<p><code>Trackpad -&gt; More Gestures -&gt; Swipe between fullscreen applications -&gt; Left or Right Four Fingers</code></p>
+<p><code>Trackpad -&gt; More Gestures -&gt; Mission Control -&gt; Swipe up with four fingers</code></p>
+<h2>Commands</h2>
+<h3>Dock Spacers</h3>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># width = 1</span>
+defaults write com.apple.dock persistent-apps -array-add <span class="hljs-string">'{"tile-type"="spacer-tile";}'</span>;
+</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># width = 1/2</span>
+defaults write com.apple.dock persistent-apps -array-add <span class="hljs-string">'{"tile-type"="small-spacer-tile";}'</span>;
+</code></pre>
+<h3>Dock AutoHide Delay</h3>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># time before animation starts</span>
+defaults write com.apple.dock autohide-delay -int 0
+<span class="hljs-comment"># length of animation</span>
+defaults write com.apple.dock autohide-time-modifier -<span class="hljs-built_in">float</span> 0.7
+</code></pre>
+<h2>Apps</h2>
 
       </main>
     

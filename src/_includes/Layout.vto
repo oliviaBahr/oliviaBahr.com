@@ -7,7 +7,8 @@ title: Main layout
   <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/code_theme.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
     <link rel="icon" type="image/png" href="/_assets/logo.png" />
     <title>Olivia Bahr</title>
   </head>
@@ -29,5 +30,32 @@ title: Main layout
       </main>
     
     </div>
+    {{# the copy button on preformatted code blocks #}}
+    <script>
+      function setCheckIcon(button) {
+        button.innerHTML = `<img src="{{ 'check' |> icon('lucide') }}" alt="Copied">`;
+      }
+      function setCopyIcon(button) {
+        button.innerHTML = `<img src="{{ 'copy' |> icon('lucide') }}" alt="Copy">`;
+      }
+      function copyCode(button) {
+        const pre = button.parentElement;
+        const code = pre.querySelector('code');
+        navigator.clipboard.writeText(code.innerText);
+        setCheckIcon(button);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('pre').forEach((pre) => {
+          const button = document.createElement('button');
+          setCopyIcon(button);
+          button.addEventListener('click', () => copyCode(button));
+          pre.addEventListener('mouseleave', () => {
+            setTimeout(() => setCopyIcon(button), 100);
+          });
+          pre.appendChild(button);
+        });
+      });
+    </script>
   </body>
 </html>

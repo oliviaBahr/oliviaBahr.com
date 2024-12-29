@@ -8,6 +8,7 @@ import postcss from "lume/plugins/postcss.ts";
 import typography from "npm:@tailwindcss/typography";
 import redirects from "lume/plugins/redirects.ts";
 import icons from "lume/plugins/icons.ts";
+import highlight from "lume/plugins/code_highlight.ts";
 
 const site = lume({ src: "./src" });
 
@@ -17,8 +18,17 @@ site.use(check_urls());
 site.use(code_highlight());
 site.use(icons());
 site.use(
+  highlight({
+    theme: {
+      name: "foundation",
+      path: "/styles/code_theme.css",
+      languages: ["shell", "bash"],
+    },
+  })
+);
+site.use(
   google_fonts({
-    cssFile: "styles.css",
+    cssFile: "styles/main.css",
     fonts: {
       text: "https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap",
       display:
@@ -98,6 +108,7 @@ site.use(postcss());
 
 site.copy("static");
 site.copy("_assets");
+site.copy("styles");
 
 site.filter("enumerate", (pages) => {
   if (!Array.isArray(pages)) {
