@@ -24,6 +24,9 @@ site.use(
       path: "/styles/code_theme.css",
       languages: ["shell", "bash"],
     },
+    options: {
+      ignoreUnescapedHTML: true,
+    },
   })
 );
 site.use(

@@ -46,7 +46,7 @@
 
 <div class="space-y-8">
   
-      <a href="/pages/publications/Boulder_Formant_Corpus/" ,="" class="card hover:bg-light-cyan/20">
+      <a href="/pages/publications/Boulder_Formant_Corpus/" ,="" class="card hover:bg-light-red/20">
         <h3 class="h3 mono">Boulder Formant Corpus</h3>
         <p class="text-gray-600">A corpus of speech data from CU Boulder students.</p>
       </a>
@@ -67,7 +67,7 @@
       function copyCode(button) {
         const pre = button.parentElement;
         const code = pre.querySelector('code');
-        navigator.clipboard.writeText(code.innerText);
+        navigator.clipboard.writeText(code.textContent);
         setCheckIcon(button);
       }
 

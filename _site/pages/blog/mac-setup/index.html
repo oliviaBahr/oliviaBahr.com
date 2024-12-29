@@ -68,7 +68,7 @@ defaults write com.apple.dock autohide-time-modifier -<span class="hljs-built_in
       function copyCode(button) {
         const pre = button.parentElement;
         const code = pre.querySelector('code');
-        navigator.clipboard.writeText(code.innerText);
+        navigator.clipboard.writeText(code.textContent);
         setCheckIcon(button);
       }
 

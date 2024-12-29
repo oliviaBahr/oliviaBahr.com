@@ -649,8 +649,7 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
       inset 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 .rainbow-shadows {
@@ -664,8 +663,7 @@ video {
   }
 .rainbow-shadows:hover {
     transform: translate(17.5px, -17.5px);
-    text-shadow:
-      -5px 5px rgb(209 77 65 / 70%),
+    text-shadow: -5px 5px rgb(209 77 65 / 70%),
       -10px 10px rgb(218 112 44 / 70%),
       -15px 15px rgb(208 162 21 / 70%),
       -20px 20px rgb(135 154 57 / 80%),
@@ -1069,8 +1067,14 @@ video {
 .hover\:bg-light-cyan\/20:hover {
   background-color: rgb(58 169 159 / 0.2);
 }
+.hover\:bg-light-green\/20:hover {
+  background-color: rgb(135 154 57 / 0.2);
+}
 .hover\:bg-light-orange\/20:hover {
   background-color: rgb(218 112 44 / 0.2);
+}
+.hover\:bg-light-red\/20:hover {
+  background-color: rgb(209 77 65 / 0.2);
 }
 .hover\:bg-light-yellow\/20:hover {
   background-color: rgb(208 162 21 / 0.2);

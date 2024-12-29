@@ -46,7 +46,7 @@
 
 <div class="space-y-8">
   
-      <a href="/pages/blog/mac-setup/" ,="" class="card hover:bg-light-orange/20">
+      <a href="/pages/blog/mac-setup/" ,="" class="card hover:bg-light-green/20">
         <h3 class="h3 mono">macOS Setup</h3>
         <p class="text-gray-600">Detailed setup for new MacOS installs</p>
       </a>
@@ -67,7 +67,7 @@
       function copyCode(button) {
         const pre = button.parentElement;
         const code = pre.querySelector('code');
-        navigator.clipboard.writeText(code.innerText);
+        navigator.clipboard.writeText(code.textContent);
         setCheckIcon(button);
       }
 
