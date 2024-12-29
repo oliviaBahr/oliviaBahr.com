@@ -665,13 +665,13 @@ video {
 .rainbow-shadows:hover {
     transform: translate(17.5px, -17.5px);
     text-shadow:
-      -5px 5px 0 #D14D41 70%,
-      -10px 10px 0 #DA702C 70%,
-      -15px 15px 0 #D0A215 70%,
-      -20px 20px 0 #879A39 80%,
-      -25px 25px 0 #4385BE 60%,
-      -30px 30px 0 #8B7EC8 75%,
-      -35px 35px 0 #CE5D97 70%;
+      -5px 5px rgb(209 77 65 / 70%),
+      -10px 10px rgb(218 112 44 / 70%),
+      -15px 15px rgb(208 162 21 / 70%),
+      -20px 20px rgb(135 154 57 / 80%),
+      -25px 25px rgb(67 133 190 / 60%),
+      -30px 30px rgb(139 126 200 / 75%),
+      -35px 35px rgb(206 93 151 / 70%);
   }
 .rainbow-shadows:focus {
     outline: none;
@@ -1066,20 +1066,14 @@ video {
   src: url('../fonts/shrikhand-normal-400-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.hover\:bg-light-blue\/20:hover {
-  background-color: rgb(67 133 190 / 0.2);
-}
 .hover\:bg-light-cyan\/20:hover {
   background-color: rgb(58 169 159 / 0.2);
 }
 .hover\:bg-light-orange\/20:hover {
   background-color: rgb(218 112 44 / 0.2);
 }
-.hover\:bg-light-purple\/20:hover {
-  background-color: rgb(139 126 200 / 0.2);
-}
-.hover\:bg-light-red\/20:hover {
-  background-color: rgb(209 77 65 / 0.2);
+.hover\:bg-light-yellow\/20:hover {
+  background-color: rgb(208 162 21 / 0.2);
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;

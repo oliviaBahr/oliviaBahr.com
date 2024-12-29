@@ -141,13 +141,13 @@
   .rainbow-shadows:hover {
     transform: translate(17.5px, -17.5px);
     text-shadow:
-      -5px 5px 0 theme("colors.light.red") 70%,
-      -10px 10px 0 theme("colors.light.orange") 70%,
-      -15px 15px 0 theme("colors.light.yellow") 70%,
-      -20px 20px 0 theme("colors.light.green") 80%,
-      -25px 25px 0 theme("colors.light.blue") 60%,
-      -30px 30px 0 theme("colors.light.purple") 75%,
-      -35px 35px 0 theme("colors.light.magenta") 70%;
+      -5px 5px theme("colors.light.red" / 70%),
+      -10px 10px theme("colors.light.orange" / 70%),
+      -15px 15px theme("colors.light.yellow" / 70%),
+      -20px 20px theme("colors.light.green" / 80%),
+      -25px 25px theme("colors.light.blue" / 60%),
+      -30px 30px theme("colors.light.purple" / 75%),
+      -35px 35px theme("colors.light.magenta" / 70%);
   }
 
   .rainbow-shadows:focus {
