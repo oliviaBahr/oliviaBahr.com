@@ -5,7 +5,6 @@
 @layer base {
   body {
     background-color: theme("colors.paper.50");
-    font-family: text;
   }
 
   .shrikhand {
@@ -157,17 +156,14 @@
     @apply relative;
   }
 
-  pre button {
+  pre img {
     @apply absolute
     top-3 right-3
-    opacity-0 transition-opacity;
+    opacity-0 transition-opacity
+    w-7 h-7;
   }
 
-  pre button img {
-    @apply w-7 h-7;
-  }
-
-  pre:hover button {
+  pre:hover img {
     opacity: 0.4;
   }
 }

@@ -32,28 +32,34 @@ title: Main layout
     </div>
     {{# the copy button on preformatted code blocks #}}
     <script>
-      function setCheckIcon(button) {
-        button.innerHTML = `<img src="{{ 'check' |> icon('lucide') }}" alt="Copied">`;
+      function setCheckIcon(img) {
+        img.src = "{{ 'check' |> icon('lucide') }}";
+        img.alt = "Copied";
       }
-      function setCopyIcon(button) {
-        button.innerHTML = `<img src="{{ 'copy' |> icon('lucide') }}" alt="Copy">`;
+      function setCopyIcon(img) {
+        img.src = "{{ 'copy' |> icon('lucide') }}";
+        img.alt = "Copy";
       }
-      function copyCode(button) {
-        const pre = button.parentElement;
+      function copyCodeSetIcon(img) {
+        const pre = img.parentElement;
         const code = pre.querySelector('code');
         navigator.clipboard.writeText(code.textContent);
-        setCheckIcon(button);
+        setCheckIcon(img);
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+        // add a copy button to each code block
         document.querySelectorAll('pre').forEach((pre) => {
-          const button = document.createElement('button');
-          setCopyIcon(button);
-          button.addEventListener('click', () => copyCode(button));
+          const img = document.createElement('img');
+          setCopyIcon(img);
+          img.addEventListener('click', () => copyCodeSetIcon(img));
           pre.addEventListener('mouseleave', () => {
-            setTimeout(() => setCopyIcon(button), 100);
+            setTimeout(() => setCopyIcon(img), 100);
           });
-          pre.appendChild(button);
+          pre.addEventListener('dblclick', () => {
+            copyCodeSetIcon(img);
+          });
+          pre.appendChild(img);
         });
       });
     </script>

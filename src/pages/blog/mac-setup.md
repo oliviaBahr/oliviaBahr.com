@@ -8,6 +8,8 @@ description: Detailed setup for new MacOS installs
 
 ## Settings
 
+->
+
 `Accessibility -> Trackpad Options -> Dragging Style -> Three Finger Drag`
 
 `Accessibility -> Double-click speed -> 8`

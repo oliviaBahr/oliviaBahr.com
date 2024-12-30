@@ -7,9 +7,11 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 import icons from "lume/plugins/icons.ts";
 import highlight from "lume/plugins/code_highlight.ts";
+import sourceMaps from "lume/plugins/source_maps.ts";
 
 const site = lume({ src: "./src" });
 
+site.use(sourceMaps());
 site.use(base_path());
 site.use(check_urls());
 site.use(code_highlight());
@@ -30,9 +32,9 @@ site.use(
   google_fonts({
     cssFile: "styles/main.css",
     fonts: {
-      text: "https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap",
-      shrikhand:
-        "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap",
+      text: "https://fonts.googleapis.com/css2?family=Sono:wght@200..800",
+      shrikhand: "https://fonts.googleapis.com/css2?family=Shrikhand",
+      mono: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800",
     },
   })
 );
