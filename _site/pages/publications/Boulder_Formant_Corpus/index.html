@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/code_theme.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/_assets/logo.png">
+    <title>Olivia Bahr</title>
+  </head>
+  <body class="min-h-screen">
+    <div class="divided-grid">
+      
+      <div class="flex items-center p-6">
+        <h1 class="text-6xl ml-6 m-4 shrikhand rainbow-shadows">
+  Olivia<br>Bahr
+</h1>
+
+      </div>
+      
+      <div class="flex items-center justify-center p-6">
+        <h1 class="title">Boulder Formant Corpus</h1>
+      </div>
+      
+      <nav class="flex flex-col space-y-4 p-6">
+  <a class="navText" href="/">About</a>
+  <a class="navText" href="/pages/projects/">Projects</a>
+  <a class="navText" href="/pages/publications/">Publications</a>
+  <a class="navText" href="/pages/blog/">Blog</a>
+</nav>
+
+      
+      <main class="px-12 py-8">
+        <h1>Boulder Formant Corpus</h1>
+
+      </main>
+    
+    </div>
+    
+    <script>
+      function setCheckIcon(img) {
+        img.src = "/icons/lucide/check.svg";
+        img.alt = "Copied";
+      }
+      function setCopyIcon(img) {
+        img.src = "/icons/lucide/copy.svg";
+        img.alt = "Copy";
+      }
+      function copyCodeSetIcon(img) {
+        const pre = img.parentElement;
+        const code = pre.querySelector('code');
+        navigator.clipboard.writeText(code.textContent);
+        setCheckIcon(img);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // add a copy button to each code block
+        document.querySelectorAll('pre').forEach((pre) => {
+          const img = document.createElement('img');
+          setCopyIcon(img);
+          img.addEventListener('click', () => copyCodeSetIcon(img));
+          pre.addEventListener('mouseleave', () => {
+            setTimeout(() => setCopyIcon(img), 100);
+          });
+          pre.addEventListener('dblclick', () => {
+            copyCodeSetIcon(img);
+          });
+          pre.appendChild(img);
+        });
+      });
+    </script>
+  
+
+</body></html>

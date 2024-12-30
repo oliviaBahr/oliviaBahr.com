@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/code_theme.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/_assets/logo.png">
+    <title>Olivia Bahr</title>
+  </head>
+  <body class="min-h-screen">
+    <div class="divided-grid">
+      
+      <div class="flex items-center p-6">
+        <h1 class="text-6xl ml-6 m-4 shrikhand rainbow-shadows">
+  Olivia<br>Bahr
+</h1>
+
+      </div>
+      
+      <div class="flex items-center justify-center p-6">
+        <h1 class="title">macOS Setup</h1>
+      </div>
+      
+      <nav class="flex flex-col space-y-4 p-6">
+  <a class="navText" href="/">About</a>
+  <a class="navText" href="/pages/projects/">Projects</a>
+  <a class="navText" href="/pages/publications/">Publications</a>
+  <a class="navText" href="/pages/blog/">Blog</a>
+</nav>
+
+      
+      <main class="px-12 py-8">
+        <h1>OS</h1>
+<h2>Settings</h2>
+<p>-&gt;</p>
+<p><code>Accessibility -&gt; Trackpad Options -&gt; Dragging Style -&gt; Three Finger Drag</code></p>
+<p><code>Accessibility -&gt; Double-click speed -&gt; 8</code></p>
+<p><code>Trackpad -&gt; Point &amp; Click -&gt; Tap to click -&gt; on</code></p>
+<p><code>Trackpad -&gt; Scroll &amp; Zoom -&gt; Natural scrolling --&gt; off</code></p>
+<p><code>Trackpad -&gt; More Gestures -&gt; Swipe between fullscreen applications -&gt; Left or Right Four Fingers</code></p>
+<p><code>Trackpad -&gt; More Gestures -&gt; Mission Control -&gt; Swipe up with four fingers</code></p>
+<h2>Commands</h2>
+<h3>Dock Spacers</h3>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># width = 1</span>
+defaults write com.apple.dock persistent-apps -array-add <span class="hljs-string">'{"tile-type"="spacer-tile";}'</span>;
+</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># width = 1/2</span>
+defaults write com.apple.dock persistent-apps -array-add <span class="hljs-string">'{"tile-type"="small-spacer-tile";}'</span>;
+</code></pre>
+<h3>Dock AutoHide Delay</h3>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># time before animation starts</span>
+defaults write com.apple.dock autohide-delay -int 0
+<span class="hljs-comment"># length of animation</span>
+defaults write com.apple.dock autohide-time-modifier -<span class="hljs-built_in">float</span> 0.7
+</code></pre>
+<h2>Apps</h2>
+
+      </main>
+    
+    </div>
+    
+    <script>
+      function setCheckIcon(img) {
+        img.src = "/icons/lucide/check.svg";
+        img.alt = "Copied";
+      }
+      function setCopyIcon(img) {
+        img.src = "/icons/lucide/copy.svg";
+        img.alt = "Copy";
+      }
+      function copyCodeSetIcon(img) {
+        const pre = img.parentElement;
+        const code = pre.querySelector('code');
+        navigator.clipboard.writeText(code.textContent);
+        setCheckIcon(img);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // add a copy button to each code block
+        document.querySelectorAll('pre').forEach((pre) => {
+          const img = document.createElement('img');
+          setCopyIcon(img);
+          img.addEventListener('click', () => copyCodeSetIcon(img));
+          pre.addEventListener('mouseleave', () => {
+            setTimeout(() => setCopyIcon(img), 100);
+          });
+          pre.addEventListener('dblclick', () => {
+            copyCodeSetIcon(img);
+          });
+          pre.appendChild(img);
+        });
+      });
+    </script>
+  
+
+</body></html>
