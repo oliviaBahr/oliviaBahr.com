@@ -5,13 +5,11 @@ import code_highlight from "lume/plugins/code_highlight.ts";
 import google_fonts from "lume/plugins/google_fonts.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
-import redirects from "lume/plugins/redirects.ts";
 import icons from "lume/plugins/icons.ts";
 import highlight from "lume/plugins/code_highlight.ts";
 
 const site = lume({ src: "./src" });
 
-site.use(redirects());
 site.use(base_path());
 site.use(check_urls());
 site.use(code_highlight());
