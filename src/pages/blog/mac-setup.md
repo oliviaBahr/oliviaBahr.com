@@ -8,19 +8,17 @@ description: Detailed setup for new MacOS installs
 
 ## Settings
 
-->
+`Accessibility > Trackpad Options > Dragging Style > Three Finger Drag`
 
-`Accessibility -> Trackpad Options -> Dragging Style -> Three Finger Drag`
+`Accessibility > Double-click speed > 8`
 
-`Accessibility -> Double-click speed -> 8`
+`Trackpad > Point & Click > Tap to click > on`
 
-`Trackpad -> Point & Click -> Tap to click -> on`
+`Trackpad > Scroll & Zoom > Natural scrolling > off`
 
-`Trackpad -> Scroll & Zoom -> Natural scrolling --> off`
+`Trackpad > More Gestures > Swipe between fullscreen applications > Left or Right Four Fingers`
 
-`Trackpad -> More Gestures -> Swipe between fullscreen applications -> Left or Right Four Fingers`
-
-`Trackpad -> More Gestures -> Mission Control -> Swipe up with four fingers`
+`Trackpad > More Gestures > Mission Control > Swipe up with four fingers`
 
 
 ## Commands
@@ -48,4 +46,3 @@ defaults write com.apple.dock autohide-time-modifier -float 0.7
 ```
 
 ## Apps
-
