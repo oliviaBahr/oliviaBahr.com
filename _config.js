@@ -34,7 +34,8 @@ site.use(
     fonts: {
       text: "https://fonts.googleapis.com/css2?family=Sono:wght@200..800",
       shrikhand: "https://fonts.googleapis.com/css2?family=Shrikhand",
-      mono: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800",
+      monospace:
+        "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800",
     },
   })
 );

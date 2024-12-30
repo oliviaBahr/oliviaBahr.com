@@ -5,6 +5,7 @@
 @layer base {
   body {
     background-color: theme("colors.paper.50");
+    font-family: text;
   }
 
   .shrikhand {
