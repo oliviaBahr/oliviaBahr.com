@@ -1,6 +1,22 @@
-<nav class="flex flex-col space-y-4 p-6">
-  <a class="navText" href="/">About</a>
-  <a class="navText" href="/pages/projects/">Projects</a>
-  <a class="navText" href="/pages/publications/">Publications</a>
-  <a class="navText" href="/pages/blog/">Blog</a>
+<nav class="flex items-center justify-between relative">
+  <div class="flex space-x-8 hidden lg:flex">
+    <a class="navText" href="/pages/projects/">Projects</a>
+    <a class="navText" href="/pages/publications/">Publications</a>
+    <a class="navText" href="/pages/blog/">Blog</a>
+  </div>
+  <button class="lg:hidden" onclick="toggleMenu()">
+    <img src="{{ 'menu' |> icon('lucide') }}" alt="Menu" class="w-8 h-8">
+  </button>
+  <div id="mobileMenu" class="absolute top-full left-0 right-0 bg-white shadow-lg flex flex-col space-y-4 hidden lg:hidden">
+    <a class="navText" href="/pages/projects/">Projects</a>
+    <a class="navText" href="/pages/publications/">Publications</a>
+    <a class="navText" href="/pages/blog/">Blog</a>
+  </div>
 </nav>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+</script>

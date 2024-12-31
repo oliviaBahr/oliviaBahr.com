@@ -13,22 +13,26 @@ title: Main layout
     <title>Olivia Bahr</title>
   </head>
   <body class="min-h-screen">
-    <div class="divided-grid">
-      
-      <div class="flex items-center p-6">
-        {{ comp.FancyName() }}
+      <div class="flex px-6 py-4 border-b-2 border-paper-400">
+        <div class="">
+          {{ comp.FancyName() }}
+        </div>
+        <div class="flex-grow flex items-center justify-center space-x-8 mx-6">
+          {{ comp.Navbar() }}
+        </div>
       </div>
-      
+
       <div class="flex items-center justify-center p-6">
-        <h1 class="title">{{title}}</h1>
+        <h1 class="title rainbow-shadows">{{title}}</h1>
       </div>
-      
-      {{ comp.Navbar() }}
       
       <main class="px-12 py-8">
         {{ content }}
       </main>
     
+    
+    </div>
+
     </div>
     {{# the copy button on preformatted code blocks #}}
     <script>
