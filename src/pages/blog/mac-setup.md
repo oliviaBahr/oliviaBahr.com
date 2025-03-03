@@ -4,7 +4,6 @@ date: 2024-12-29
 description: Detailed setup for new MacOS installs
 ---
 
-# OS
 
 ## Settings
 
@@ -22,15 +21,51 @@ description: Detailed setup for new MacOS installs
 
 
 
-## Installs
+## Initial Setup
+
+### Setup for Setup
+
+```bash
+# brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+export PATH="/opt/homebrew/bin:$PATH"
+# apps
+brew install --cask arc ghostty gh
+# github auth
+gh auth login
+```
+
+### Pull dotfiles from github
+```bash
+cd $HOME
+echo "/*" > .gitignore
+git init -b main
+git remote add origin https://github.com/oliviaBahr/HOME.git
+gh repo sync
+```
+
+### Git config
+```bash
+git config --global user.name "Olivia Bahr"
+git config --global user.email "ob.bahr@gmail.com"
+git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global push.autosetupremote true
+git config --global core.excludesfile ~/.gitignore_global
+```
 
 ### Shell
 ```bash
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install nushell
+sudo sh -c 'echo /opt/homebrew/bin/nu >> /etc/shells'
+chsh -s /opt/homebrew/bin/nu
 ```
+```bash
+reboot
+```
+
+
+## Installs
 
 ### Packages
 ```bash
@@ -39,25 +74,48 @@ brew install bat bat-extras btop most zoxide fastfetch
 brew install pass tldr mas trash
 brew install tmux jandedobbeleer/oh-my-posh/oh-my-posh
 # network, ssh, security
-brew install nmap sshpass speedtest-cli
+brew install nmap speedtest-cli
+brew install gh sshpass
 # dev
-brew install cmake lazygit
+brew install git-lfs lazygit cmake
 # languages
-brew install miniconda uv deno golang kotlin kdoctor
+brew install miniconda uv
+brew install deno npm pnpm
+brew install golang
+brew install kotlin kdoctor
 ```
 
 ### Apps
+
+[Display Link](https://www.synaptics.com/products/displaylink-graphics/downloads/macos)\
+[Keyboard Driver](https://skyloong.vip/pages/skyloong-software)
+
 ```bash
-brew install --cask zed cursor warp ghostty
+# keeb
+brew install --cask karabiner-elements logitech-g-hub
 brew install --cask nikitabobko/tap/aerospace
-brew install --cask hiddenbar raycast
+# system
+brew install --cask hiddenbar raycast shottr monitorcontrol
 brew install --cask font-maple-mono-nf
+# utils
+brew install --cask appcleaner grandperspective
+brew install --cask balenaetcher
+brew install --cask surfshark
+# browsers
+brew install --cask arc google-chrome brave-browser
+# productivity & dev
+brew install --cask obsidian notion notion-calendar zotero
+brew install --cask zed cursor warp ghostty
+brew install --cask claude chatgpt
+# social & other
+brew install --cask discord slack signal zoom
+brew install --cask steam
 ```
 
 ```bash
 mas lucky "RunCat"
-mas lucky "Surfshark VPN"
 ```
+
 
 ## Aesthetics
 
