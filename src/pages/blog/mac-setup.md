@@ -23,19 +23,21 @@ description: Detailed setup for new MacOS installs
 
 ## Initial Setup
 
-### Setup for Setup
-
+### Brew
 ```bash
-# brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 export PATH="/opt/homebrew/bin:$PATH"
-# apps
-brew install --cask arc ghostty gh
-# github auth
-gh auth login
+```
+
+### Basic Apps
+```bash
+brew install --cask arc ghostty gh raycast
 ```
 
 ### Pull dotfiles from github
+```bash
+gh auth login
+```
 ```bash
 cd $HOME
 echo "/*" > .gitignore
@@ -44,14 +46,28 @@ git remote add origin https://github.com/oliviaBahr/HOME.git
 gh repo sync
 ```
 
-### Git config
+### SSH Keys
+
+Generate and use new key
 ```bash
-git config --global user.name "Olivia Bahr"
-git config --global user.email "ob.bahr@gmail.com"
-git config --global init.defaultBranch main
-git config --global pull.rebase true
-git config --global push.autosetupremote true
-git config --global core.excludesfile ~/.gitignore_global
+ssh-keygen -t ed25519 -C "EMAIL"
+```
+```bash
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+Add to allowed signers
+```bash
+echo "$(git config user.name) <$(git config user.email)> $(cat ~/.ssh/id_ed25519.pub)" >> ~/.config/git/allowed_signers
+```
+
+Add to GitHub
+```bash
+# copy to clipboard
+pbcopy < ~/.ssh/id_ed25519.pub
+# open github Link
+open -a "Arc" "https://github.com/settings/keys"
 ```
 
 ### Shell
@@ -70,12 +86,11 @@ reboot
 ### Packages
 ```bash
 # terminal utils
-brew install bat bat-extras btop most zoxide fastfetch
+brew install bat bat-extras btop most zoxide fastfetch sl
 brew install pass tldr mas trash
 brew install tmux jandedobbeleer/oh-my-posh/oh-my-posh
-# network, ssh, security
+# network
 brew install nmap speedtest-cli
-brew install gh sshpass
 # dev
 brew install git-lfs lazygit cmake
 # languages
@@ -87,33 +102,37 @@ brew install kotlin kdoctor
 
 ### Apps
 
-[Display Link](https://www.synaptics.com/products/displaylink-graphics/downloads/macos)\
-[Keyboard Driver](https://skyloong.vip/pages/skyloong-software)
 
 ```bash
 # keeb
 brew install --cask karabiner-elements logitech-g-hub
 brew install --cask nikitabobko/tap/aerospace
 # system
-brew install --cask hiddenbar raycast shottr monitorcontrol
+brew install --cask displaylink monitorcontrol
+brew install --cask hiddenbar raycast shottr
 brew install --cask font-maple-mono-nf
 # utils
 brew install --cask appcleaner grandperspective
 brew install --cask balenaetcher
 brew install --cask surfshark
 # browsers
-brew install --cask arc google-chrome brave-browser
+brew install --cask arc google-chrome zen
 # productivity & dev
-brew install --cask obsidian notion notion-calendar zotero
-brew install --cask zed cursor warp ghostty
+brew install --cask obsidian zotero
+brew install --cask zed cursor visual-studio-code
+brew install --cask warp ghostty
 brew install --cask claude chatgpt
-# social & other
-brew install --cask discord slack signal zoom
-brew install --cask steam
+# social & games
+brew install --cask slack signal zoom
+brew install --cask discord legcord
+brew install --cask steam curseforge
 ```
 
 ```bash
 mas lucky "RunCat"
+```
+```bash
+https://skyloongtech.com/skyloong-keyboard-software/
 ```
 
 
@@ -138,4 +157,9 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-sp
 defaults write com.apple.dock autohide-delay -int 0
 # length of animation
 defaults write com.apple.dock autohide-time-modifier -float 0.7
+```
+
+### Hide Folders in Finder
+```bash
+chflags hidden ~/Library ~/Documents ~/Movies ~/Pictures ~/Music
 ```
