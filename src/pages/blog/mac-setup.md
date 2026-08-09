@@ -108,6 +108,7 @@ brew install kotlin kdoctor
 brew install --cask karabiner-elements logitech-g-hub
 brew install --cask nikitabobko/tap/aerospace
 # system
+brew install --cask vorssaint
 brew install --cask displaylink monitorcontrol
 brew install --cask jordanbaird-ice raycast shottr xykong/tap/flux-markdown
 brew install --cask font-maple-mono-nf
