@@ -32,18 +32,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 ### Basic Apps
 ```bash
 brew install --cask arc ghostty gh raycast
-```
-
-### Pull dotfiles from github
-```bash
-gh auth login
-```
-```bash
-cd $HOME
-echo "/*" > .gitignore
-git init -b main
-git remote add origin https://github.com/oliviaBahr/HOME.git
-gh repo sync
+brew install just
 ```
 
 ### SSH Keys
@@ -57,11 +46,6 @@ eval "$(ssh-agent -s)"
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-Add to allowed signers
-```bash
-echo "$(git config user.name) <$(git config user.email)> $(cat ~/.ssh/id_ed25519.pub)" >> ~/.config/git/allowed_signers
-```
-
 Add to GitHub
 ```bash
 # copy to clipboard
@@ -70,14 +54,25 @@ pbcopy < ~/.ssh/id_ed25519.pub
 open -a "Arc" "https://github.com/settings/keys"
 ```
 
-### Shell
+### Pull dotfiles from github
 ```bash
-brew install nushell
-sudo sh -c 'echo /opt/homebrew/bin/nu >> /etc/shells'
-chsh -s /opt/homebrew/bin/nu
+gh auth login
 ```
 ```bash
-reboot
+mkdir -p ~/.config
+cd ~/.config
+git init -b main
+git remote add origin git@github.com:oliviaBahr/dotfiles.git
+gh repo sync
+```
+```bash
+# symlink _home_syms -> ~ and _other_syms -> /
+just link_all
+```
+
+Add to allowed signers
+```bash
+echo "$(git config user.name) <$(git config user.email)> $(cat ~/.ssh/id_ed25519.pub)" >> ~/.config/git/allowed_signers
 ```
 
 
@@ -105,7 +100,7 @@ brew install kotlin kdoctor
 
 ```bash
 # keeb
-brew install --cask karabiner-elements logitech-g-hub
+brew install --cask logitech-g-hub
 brew install --cask nikitabobko/tap/aerospace
 # system
 brew install --cask vorssaint
@@ -135,6 +130,47 @@ mas lucky RunCatNeo
 ```bash
 https://skyloongtech.com/skyloong-keyboard-software/
 ```
+
+### Kanata (DriverKit only — do not install Karabiner-Elements)
+
+Kanata needs Karabiner-DriverKit-VirtualHIDDevice, not full Karabiner-Elements.
+KE and Kanata fight over exclusive keyboard grab. Use driver `v8.0.0` with a
+Kanata build that supports VirtualHID protocol 7 (`brew install --HEAD kanata`
+until Homebrew ships `>= 1.13.0`).
+
+```bash
+# install VirtualHIDDevice v8.0.0
+curl -L -o /tmp/Karabiner-DriverKit-VirtualHIDDevice-8.0.0.pkg \
+  https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice/releases/download/v8.0.0/Karabiner-DriverKit-VirtualHIDDevice-8.0.0.pkg
+sudo installer -pkg /tmp/Karabiner-DriverKit-VirtualHIDDevice-8.0.0.pkg -target /
+
+# activate system extension
+sudo /Applications/.Karabiner-VirtualHIDDevice-Manager.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Manager activate
+```
+`System Settings > General > Login Items & Extensions > Driver Extensions`
+enable `org.pqrs.Karabiner-DriverKit-VirtualHIDDevice`
+
+```bash
+# kanata binary with v8 client
+brew unlink kanata 2>/dev/null || true
+brew install --HEAD kanata
+
+# permissions: add /opt/homebrew/bin/kanata via Cmd+Shift+G
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_ListenEvent"
+open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+```
+
+```bash
+# angel + LaunchDaemons (plists pulled with dotfiles under ~/.config/angel/system/)
+cargo install --git https://github.com/oliviaBahr/angel.git
+sudo mkdir -p /Library/Logs/Kanata
+angel install ~/.config/angel/system/org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist
+angel install ~/.config/angel/system/com.friday.kanata.plist
+```
+
+Hard requirements:
+- DriverKit `8.0.0` + Kanata HEAD / `>= 1.13` (not stable `1.12.0` + driver `6.2.0` mix with KE)
+- never install `karabiner-elements` alongside Kanata
 
 
 ## Aesthetics
