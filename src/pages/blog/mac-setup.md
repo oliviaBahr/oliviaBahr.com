@@ -113,7 +113,7 @@ brew install --cask displaylink monitorcontrol
 brew install --cask jordanbaird-ice raycast shottr xykong/tap/flux-markdown
 brew install --cask font-maple-mono-nf
 # utils
-brew install --cask appcleaner grandperspective
+brew install --cask grandperspective
 brew install --cask balenaetcher
 brew install --cask surfshark
 # browsers
@@ -130,7 +130,7 @@ brew install --cask steam curseforge
 ```
 
 ```bash
-mas lucky "RunCat"
+mas lucky RunCatNeo
 ```
 ```bash
 https://skyloongtech.com/skyloong-keyboard-software/
